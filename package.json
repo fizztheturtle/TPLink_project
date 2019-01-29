@@ -1,0 +1,8 @@
+{
+  "name": "TPLink_project",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "latest",
+    "tplink-lightbulb": "latest"
+  }
+}
