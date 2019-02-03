@@ -2,9 +2,9 @@
 The colour picker tool can be found from Mozzila Contributors
 ->[MDN @ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool ]
 
-TPLink project, controlling a tplink LB130 from a web browser,
-on the computer you implement the project. 
+TPLink project, controlling a tplink LB130 from a web browser.
 
+instructions: 
 
 Run server_.js.
 
