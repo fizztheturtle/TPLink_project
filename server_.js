@@ -8,7 +8,28 @@ const TPLSmartDevice = require('tplink-lightbulb');
 http.createServer(function (req, res) {
     // const q = url.parse(req.url, true);
     // const filename = "." + q.pathname;
-// console.log(req);
+    if(req.url==='/light_off')
+    {
+        turn_off();
+        console.log ('Turned light off ');
+        res.writeHead(200);
+        res.end('<h1> Light has been set to off</h1>');
+    }
+    if(req.url==='/low')
+    {
+        turn_on_temp_l();
+        console.log ('light is on a low setting');
+        res.writeHead(200);
+        res.end('<h1> light is on a low setting</h1>');
+    }
+    if(req.url==='/high') {
+        turn_on_temp_h();
+        console.log('light is at full brightness');
+        res.writeHead(200);
+        res.end('<h1> light is at full brightness</h1>');
+    }
+
+
     fs.readFile('./Colour_html/'+ req.url, function (err, data) {
 
         if(!err) {
@@ -45,7 +66,7 @@ http.createServer(function (req, res) {
         return res.end();
     });
 
-}).listen(8080,'0.0.0.0');
+}).listen(8080);
 
 function collectRequestData(request, callback) {
     const FORM_URLENCODED = 'application/x-www-form-urlencoded';
@@ -88,6 +109,24 @@ function turn_on_hsl(x) {
         .catch(e => console.error(e));
 }
 
+function turn_on_temp_l() {
+    light.power(true, 2500, {
+        'mode': 'normal',
+        'brightness': 5,
+        'color_temp': 2700
+    }) .then(status => {
+        })
+        .catch(e => console.error(e));
+}
+function turn_on_temp_h() {
+    light.power(true, 2500, {
+        'mode': 'normal',
+        'brightness': 100,
+        'color_temp': 2700
+    }) .then(status => {
+    })
+        .catch(e => console.error(e));
+}
 function turn_off() {
     light.power(false, 2500, {});
     light.details()
