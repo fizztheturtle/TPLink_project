@@ -15,14 +15,14 @@ http.createServer(function (req, res) {
         res.writeHead(200);
         res.end('<h1> Light has been set to off</h1>');
     }
-    if(req.url==='/low')
+    else if(req.url==='/low')
     {
         turn_on_temp_l();
         console.log ('light is on a low setting');
         res.writeHead(200);
         res.end('<h1> light is on a low setting</h1>');
     }
-    if(req.url==='/high') {
+    else if(req.url==='/high') {
         turn_on_temp_h();
         console.log('light is at full brightness');
         res.writeHead(200);
@@ -66,7 +66,7 @@ http.createServer(function (req, res) {
         return res.end();
     });
 }
-}).listen(8080);
+}).listen(7999);
 
 function collectRequestData(request, callback) {
     const FORM_URLENCODED = 'application/x-www-form-urlencoded';

@@ -8,7 +8,7 @@ instructions:
 
 Run server_.js.
 
-Open Browser and go to http://localhost:8080/colour_adv_code.html.
+Open Browser and go to http://localhost:7999/colour_adv_code.html.
 
 Pick a colour from the palette.
 
