@@ -1,5 +1,5 @@
 const http = require('http');
-const url = require('url');
+
 const fs = require('fs');
 const {parse} = require('querystring');
 const TPLSmartDevice = require('tplink-lightbulb');
@@ -29,7 +29,7 @@ http.createServer(function (req, res) {
         res.end('<h1> light is at full brightness</h1>');
     }
 
-
+    else {
     fs.readFile('./Colour_html/'+ req.url, function (err, data) {
 
         if(!err) {
@@ -65,7 +65,7 @@ http.createServer(function (req, res) {
 
         return res.end();
     });
-
+}
 }).listen(8080);
 
 function collectRequestData(request, callback) {
@@ -153,15 +153,15 @@ function convertAndSet(color) {
         turn_on_hsl(x);
     }
 }
-
-function hexToRgb(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : null;
-}
+//
+// function hexToRgb(hex) {
+//     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+//     return result ? {
+//         r: parseInt(result[1], 16),
+//         g: parseInt(result[2], 16),
+//         b: parseInt(result[3], 16)
+//     } : null;
+// }
 
 function rgbToHsl(r, g, b) {
     r /= 255;
