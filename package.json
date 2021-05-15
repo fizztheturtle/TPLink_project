@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "body-parser": "latest",
-    "tplink-lightbulb": "latest"
+    "tplink-lightbulb": "latest",
+    "tplink-smarthome-api": "^1.2.0"
   }
 }
